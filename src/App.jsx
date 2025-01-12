@@ -6,7 +6,6 @@ import NewUser from "./components/NewUser";
 import { useAtom } from "jotai";
 import { loggedInAtom, isEditingAtom, tokenAtom } from "./atoms";
 import useFetchData from "./hooks/useFetchData";
-import useDeleteNote from "./hooks/useDeleteNote";
 import Delete from "./components/Delete";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
 			},
 		})
 	);
-	const { deleteNote } = useDeleteNote(fetchData);
 	const [loggedIn] = useAtom(loggedInAtom);
 	const [isEditing, setIsEditing] = useAtom(isEditingAtom);
 

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { isEditingAtom } from "../atoms";
 import useFormHandlers from "../hooks/useFormHandlers";
-import { createNote } from "../requests/requests";
 
 const Notes = () => {
 	const [isEditing, setIsEditing] = useAtom(isEditingAtom);
@@ -20,23 +19,19 @@ const Notes = () => {
 		}));
 	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		const newNote = {
-			title: formData.title,
-			description: formData.description,
-		};
-
-		const res = await createNote(newNote);
-		console.log(res);
-	};
-
-	useEffect(() => {}, []);
 	return (
 		<div style={{ maxWidth: "400px", margin: "0 auto", padding: "20px" }}>
 			<h2>Note!</h2>
-			<form onSubmit={() => handleSubmit()}>
+			<form
+				onSubmit={(e) => {
+					e.preventDefault();
+					if (isEditing) {
+						handleUpdateNote(formData._id);
+					} else {
+						handleCreateNote(e, formData);
+					}
+				}}
+			>
 				<div style={{ marginBottom: "15px" }}>
 					<label
 						htmlFor="title"

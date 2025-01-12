@@ -10,7 +10,6 @@ const useFormHandlers = () => {
     const [, setIsSubmitting] = useAtom(isSubmittingAtom);
     const [, setResponseMessage] = useAtom(responseMessageAtom);
     const [token] = useAtom(tokenAtom);
-    console.log(token);
 
 
     const { fetchData } = useFetchData(() =>
