@@ -29,7 +29,7 @@ const LoginForm = () => {
 
 		try {
 			const response = await fetch(
-				"http://localhost:8000/api/auth/login",
+				"https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/auth/login",
 				{
 					method: "POST",
 					headers: { "Content-Type": "application/json" },

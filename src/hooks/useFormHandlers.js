@@ -13,7 +13,7 @@ const useFormHandlers = () => {
 
 
     const { fetchData } = useFetchData(() =>
-        fetch("http://localhost:8000/api/notes", {
+        fetch("https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/notes", {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`, // Include the token in the Authorization header
@@ -29,7 +29,7 @@ const useFormHandlers = () => {
         setIsSubmitting(true);
         setResponseMessage("");
         try {
-            const response = await fetch("http://localhost:8000/api/notes", {
+            const response = await fetch("https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/notes", {
                 method: "POST",
                 body: JSON.stringify({
                     title: formData.title,
@@ -63,7 +63,7 @@ const useFormHandlers = () => {
         setIsSubmitting(true);
         setResponseMessage("");
         try {
-            const response = await fetch(`http://localhost:8000/api/notes/${id}`, {
+            const response = await fetch(`https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/notes/${id}`, {
                 title: formData.title,
                 description: formData.description,
             });
@@ -86,7 +86,7 @@ const useFormHandlers = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:8000/api/auth/register",
+                "https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/auth/register",
                 formData
             );
 
@@ -112,7 +112,7 @@ const useFormHandlers = () => {
         try {
             console.log(formData);
             const response = await axios.post(
-                "http://localhost:8000/api/auth/login",
+                "https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/auth/login",
                 formData
             );
 

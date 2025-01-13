@@ -7,7 +7,7 @@ const Delete = ({ item }) => {
 	const deleteNote = async (id) => {
 		try {
 			const response = await fetch(
-				`http://localhost:8000/api/notes/${id}`,
+				`https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/notes/${id}`,
 				{ method: "DELETE" }
 			);
 			if (response.status !== 200) {
