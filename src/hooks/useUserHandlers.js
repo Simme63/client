@@ -8,7 +8,7 @@ const useUserHandlers = () => {
   const [, setResponseMessage] = useAtom(responseMessageAtom);
   const [token] = useAtom(tokenAtom);
   const { fetchData } = useFetchData(() =>
-    fetch("https://server-g4wwnccmm-simme63s-projects.vercel.app/api/notes", {
+    fetch("https://client-tau-one.vercel.app//api/notes", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Include the token in the Authorization header
@@ -22,7 +22,7 @@ const useUserHandlers = () => {
     setIsSubmitting(true);
     setResponseMessage("");
     try {
-      const response = await axios.post("https://server-g4wwnccmm-simme63s-projects.vercel.app/api/users", {
+      const response = await axios.post("https://client-tau-one.vercel.app//api/users", {
         username: formData.username,
         password: formData.password,
       });

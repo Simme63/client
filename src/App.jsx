@@ -11,7 +11,7 @@ import Delete from "./components/Delete";
 function App() {
 	const [token] = useAtom(tokenAtom);
 	const { data, loading, error, fetchData } = useFetchData(() =>
-		fetch("https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/notes", {
+		fetch("https://client-tau-one.vercel.app/api/notes", {
 			method: "GET",
 			headers: {
 				Authorization: `Bearer ${token}`, // Include the token in the Authorization header

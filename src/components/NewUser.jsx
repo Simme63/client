@@ -28,7 +28,7 @@ const NewUser = () => {
 		}
 		try {
 			const response = await fetch(
-				"https://server-g4wwnccmm-simme63s-projects.vercel.app/0/api/auth/register",
+				"https://client-tau-one.vercel.app/api/auth/register",
 				{
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
