@@ -1,17 +1,18 @@
-import React from "react";
+import { useAtom } from "jotai";
 import "./App.css";
-import Notes from "./components/Notes";
+import { isEditingAtom, loggedInAtom, tokenAtom } from "./atoms";
+import Delete from "./components/Delete";
 import LoginForm from "./components/LoginForm";
 import NewUser from "./components/NewUser";
-import { useAtom } from "jotai";
-import { loggedInAtom, isEditingAtom, tokenAtom } from "./atoms";
+import Notes from "./components/Notes";
 import useFetchData from "./hooks/useFetchData";
-import Delete from "./components/Delete";
+import useFormHandlers from "./hooks/useFormHandlers";
 
 function App() {
 	const [token] = useAtom(tokenAtom);
-	const { data, loading, error, fetchData } = useFetchData(() =>
-		fetch("https://client-tau-one.vercel.app/api/notes", {
+	const { handleEdit } = useFormHandlers();
+	const { data, loading, error } = useFetchData(() =>
+		fetch("http://localhost:5000/api/notes", {
 			method: "GET",
 			headers: {
 				Authorization: `Bearer ${token}`, // Include the token in the Authorization header
@@ -20,7 +21,7 @@ function App() {
 		})
 	);
 	const [loggedIn] = useAtom(loggedInAtom);
-	const [isEditing, setIsEditing] = useAtom(isEditingAtom);
+	const [, setIsEditing] = useAtom(isEditingAtom);
 
 	return (
 		<>

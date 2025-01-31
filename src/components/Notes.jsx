@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useAtom } from "jotai";
 import { isEditingAtom } from "../atoms";
 import useFormHandlers from "../hooks/useFormHandlers";
 
 const Notes = () => {
-	const [isEditing, setIsEditing] = useAtom(isEditingAtom);
+	const [isEditing,] = useAtom(isEditingAtom);
 	const { handleCreateNote, handleUpdateNote } = useFormHandlers();
 	const [formData, setFormData] = useState({
 		title: "",

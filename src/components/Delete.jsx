@@ -1,5 +1,5 @@
-import React from "react";
 import useFetchData from "../hooks/useFetchData";
+import PropTypes from 'prop-types';
 
 const Delete = ({ item }) => {
 	const { fetchData } = useFetchData();
@@ -7,7 +7,7 @@ const Delete = ({ item }) => {
 	const deleteNote = async (id) => {
 		try {
 			const response = await fetch(
-				`https://client-tau-one.vercel.app/api/notes/${id}`,
+				`http://localhost:5000/api/notes/${id}`,
 				{ method: "DELETE" }
 			);
 			if (response.status !== 200) {
@@ -31,5 +31,11 @@ const Delete = ({ item }) => {
 		</button>
 	);
 };
+Delete.propTypes = {
+	item: PropTypes.shape({
+		_id: PropTypes.string.isRequired,
+	}).isRequired,
+};
 
 export default Delete;
+

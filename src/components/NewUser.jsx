@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 
 const NewUser = () => {
@@ -28,7 +27,7 @@ const NewUser = () => {
 		}
 		try {
 			const response = await fetch(
-				"https://client-tau-one.vercel.app/api/auth/register",
+				"http://localhost:5000/api/auth/register",
 				{
 					method: "POST",
 					headers: { "Content-Type": "application/json" },

@@ -1,5 +1,5 @@
 import { useSetAtom } from "jotai";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { tokenAtom, userAtom } from "../atoms";
 
 const LoginForm = () => {
@@ -26,10 +26,10 @@ const LoginForm = () => {
 			alert("Please fill out all fields");
 			return;
 		}
-
+//https://server-wheat-alpha.vercel.app/api/auth/login
 		try {
 			const response = await fetch(
-				"https://server-wheat-alpha.vercel.app/api/auth/login",
+				"http://localhost:5000/api/auth/login",
 				{
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
